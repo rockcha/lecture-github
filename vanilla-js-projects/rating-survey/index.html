@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      integrity="sha512-8x2n8rYh2n7J2Pq4jQmJ5u1nA9Pp5J9p7j0p8Hk1z/...."
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script type="module" src="index.js"></script>
+    <title>별점 기반 설문조사⭐</title>
+  </head>
+  <body>
+    <div class="survey">
+      <div class="steps">
+        <span class="circle active">1</span>
+        <span class="circle">2</span>
+        <span class="circle">3</span>
+
+        <div class="progress-bar">
+          <span class="indicator"></span>
+        </div>
+      </div>
+
+      <div class="survey-content">
+        <h2 class="question">이번 경험은 전반적으로 어땠나요?</h2>
+        <div class="stars">
+          <i data-index="1" class="fa-solid fa-star active"></i>
+          <i data-index="2" class="fa-solid fa-star"></i>
+          <i data-index="3" class="fa-solid fa-star"></i>
+          <i data-index="4" class="fa-solid fa-star"></i>
+          <i data-index="5" class="fa-solid fa-star"></i>
+        </div>
+
+        <div class="survey-actions">
+          <button id="prev-btn">
+            <i class="fa-solid fa-angle-left"></i> 이전
+          </button>
+          <button id="next-btn" disabled>
+            다음 <i class="fa-solid fa-angle-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

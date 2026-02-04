@@ -1,0 +1,132 @@
+:root {
+  --font-kr:
+    "Gowun Dodum", "Noto Sans KR", "Apple SD Gothic Neo", "Segoe UI", Arial,
+    sans-serif;
+
+  --shadow:
+    rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+
+  --border: 1px solid black;
+
+  --success: #22c55e;
+  --fail: #ef4444;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-kr);
+}
+
+body {
+  height: 100vh;
+  background-color: lightgray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  background-color: whitesmoke;
+  width: clamp(400px, 35%, 800px);
+  border: 1px solid gray;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+
+  overflow: auto;
+}
+
+header {
+  background-color: coral;
+  color: white;
+  padding: 1rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header h1 {
+  font-size: 32px;
+}
+
+#form {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.input-control {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.input-control label {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+.input-control input {
+  font-size: 12px;
+  padding: 0.5rem;
+  border: 2px solid lightgray;
+  margin-bottom: 0.3rem;
+  background-color: white;
+}
+
+.input-control input:focus {
+  outline: none;
+  box-shadow: 0 0 18px rgba(255, 170, 40, 0.55);
+}
+
+.input-control i {
+  position: absolute;
+  top: 35px;
+  right: 10px;
+  visibility: hidden;
+}
+
+.input-control small {
+  font-size: 11px;
+
+  visibility: hidden;
+}
+
+#input-btn {
+  font-size: 16px;
+  outline: none;
+  border: none;
+  background-color: coral;
+  color: white;
+  cursor: pointer;
+  padding: 0.5rem 0;
+}
+
+/* 성공, 실패했을 때 스타일  */
+
+.input-control.success input {
+  border-color: var(--success);
+}
+
+.input-control.fail input {
+  border-color: var(--fail);
+}
+
+.input-control.success i.fa-circle-check {
+  color: var(--success);
+  visibility: visible;
+}
+
+.input-control.fail i.fa-circle-exclamation {
+  color: var(--fail);
+  visibility: visible;
+}
+
+.input-control.fail small {
+  color: var(--fail);
+  visibility: visible;
+}

@@ -1,0 +1,125 @@
+:root {
+  --font-kr:
+    "Gowun Dodum", "Noto Sans KR", "Apple SD Gothic Neo", "Segoe UI", Arial,
+    sans-serif;
+
+  --shadow:
+    rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+
+  --border: 1px solid black;
+
+  --app-background:
+    radial-gradient(
+      900px 600px at 20% 20%,
+      rgba(255, 185, 175, 0.35),
+      transparent 60%
+    ),
+    radial-gradient(
+      900px 600px at 80% 20%,
+      rgba(189, 210, 255, 0.5),
+      transparent 60%
+    ),
+    linear-gradient(180deg, #f7f7fb, #eef2ff);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-kr);
+}
+
+body {
+  height: 100vh;
+  background: var(--app-background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.box-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+
+  /* 자동 줄바꿈 */
+  flex-wrap: wrap;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow);
+  border-radius: 8px;
+  overflow: auto;
+
+  /* msg 띄우기 위한 기준이 되는 위치 */
+  position: relative;
+}
+
+.box .color {
+  width: 200px;
+  height: 170px;
+  background-color: gray;
+}
+
+/* button 기본 스타일들 ( 색상 박스도 button임)  ; */
+
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-3px);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+.box .msg {
+  /* 기본값은 안보이게  */
+
+  visibility: hidden;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  font-weight: 600;
+  color: white;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.12);
+  border-radius: 8px;
+}
+
+/* copied 를 붙이면 msg가 보임 */
+.box.copied .msg {
+  visibility: visible;
+}
+
+.hex {
+  padding: 0.5rem 0;
+  font-size: larger;
+}
+
+#gen-btn {
+  padding: 1rem 2.2rem;
+  font-size: 24px;
+  background: skyblue;
+  color: white;
+  border-radius: 12px;
+}

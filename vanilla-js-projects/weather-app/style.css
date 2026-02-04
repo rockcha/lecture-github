@@ -1,0 +1,407 @@
+/* =========================
+   1) 전역 변수(디자인 토큰)
+   ========================= */
+:root {
+  /* 폰트 패밀리 */
+  --font-kr:
+    "Gowun Dodum", "Noto Sans KR", "Apple SD Gothic Neo", "Segoe UI", Arial,
+    sans-serif;
+
+  /* 그림자(필요시 카드/버튼 등에 사용) */
+  --shadow:
+    rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+
+  /* 임시 보더(디버깅용) */
+  --border: 1px solid black;
+
+  /* 배경 그라데이션(지금은 이미지 배경 사용 중) */
+  --app-background:
+    radial-gradient(
+      900px 600px at 20% 20%,
+      rgba(255, 185, 175, 0.35),
+      transparent 60%
+    ),
+    radial-gradient(
+      900px 600px at 80% 20%,
+      rgba(189, 210, 255, 0.5),
+      transparent 60%
+    ),
+    linear-gradient(180deg, #f7f7fb, #eef2ff);
+
+  /* ✅ 공통 컬러 토큰(반투명 화이트 톤) */
+  --text: rgba(255, 255, 255, 0.85); /* 기본 텍스트 */
+  --muted: rgba(255, 255, 255, 0.6); /* placeholder 등 약한 텍스트 */
+  --line: rgba(255, 255, 255, 0.45); /* 보더/점선 */
+  --line-strong: rgba(255, 255, 255, 0.65); /* hover/focus 등 강조 선 */
+}
+
+/* =========================
+   2) 리셋/기본 스타일
+   ========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-kr);
+}
+
+/* 전체 화면 배경 + 중앙 정렬 */
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* 모바일에서 화면 끝에 딱 붙지 않게 */
+  padding: 1rem;
+
+  /* 앱 배경(이미지) */
+  background: url(./imgs/bg.png) center / cover no-repeat;
+}
+
+/* =========================
+   3) 앱 컨테이너(글래스 느낌)
+   ========================= */
+.container {
+  display: flex;
+  flex-direction: column;
+
+  /* 화면 크기에 따라 유동 폭 */
+  width: clamp(320px, 80%, 960px);
+
+  /* 앱 최소 높이 */
+  min-height: 800px;
+
+  border-radius: 12px;
+  backdrop-filter: blur(3px);
+  background: rgba(0, 0, 0, 0.35);
+  padding: 1rem;
+
+  /* 내부 요소 가로 가운데 정렬 */
+  align-items: center;
+}
+
+/* =========================
+   4) 화면 전환(screen)
+   - main-screen / loading-screen 등
+   ========================= */
+.screen {
+  display: none; /* 기본은 숨김 */
+  width: 100%;
+  flex: 1; /* 컨테이너 안에서 남는 높이 차지 */
+  border-radius: 12px;
+}
+
+/* 현재 보여줄 화면만 display:flex */
+.screen.current {
+  display: flex;
+  flex-direction: column;
+
+  /* 위부터 쌓기(센터로 몰리면 hourly가 어색해짐) */
+  justify-content: flex-start;
+  align-items: center;
+
+  /* 부모(screen)가 flex:1이라면 height:100%가 안정적 */
+  height: 100%;
+}
+
+/* 로딩 화면 배경 */
+
+.msg-container {
+  width: 100%;
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.msg-container p {
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.msg-container img {
+  width: 350px;
+  height: 350px;
+  object-fit: cover;
+}
+
+/* not-found  */
+
+/* =========================
+   5) 상단 검색 인풋 영역
+   ========================= */
+.input-section {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* 버튼을 input 위에 얹기 위해 */
+}
+
+/* 도시 입력창 */
+#input {
+  width: 100%;
+
+  background: transparent;
+  border: 2px solid var(--line);
+  outline: none;
+
+  padding: 1.2rem 1.4rem;
+  border-radius: 999px;
+  font-size: 20px;
+
+  color: var(--text);
+  margin: 1rem 0;
+}
+
+/* placeholder 색 */
+#input::placeholder {
+  color: var(--muted);
+}
+
+/* 포커스 시 보더/광택 */
+#input:focus {
+  border-color: var(--line-strong);
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.12);
+}
+
+/* 검색 버튼(돋보기) */
+#input-btn {
+  position: absolute;
+  right: 5px;
+
+  border: none;
+  outline: none;
+  background: transparent;
+
+  cursor: pointer;
+  padding: 1rem;
+
+  color: var(--text);
+  font-size: 24px;
+
+  transition: all 0.3s ease;
+}
+
+#input-btn:hover {
+  color: var(--line-strong);
+}
+#input-btn:active {
+  transform: scale(0.95);
+}
+
+/* =========================
+   6) 현재 날씨 영역
+   ========================= */
+.current-weather-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* 위치/날짜 상단 바 */
+.current-weather-section .location-date-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+  padding: 1rem;
+  border-bottom: 3px dashed var(--line);
+
+  font-size: 1.4rem;
+  font-weight: bolder;
+  color: var(--text);
+}
+
+/* 위치/날짜 아이콘 */
+.current-weather-section .location-date-section i {
+  font-size: 2.5rem;
+  margin-right: 1rem;
+}
+
+/* 날씨 이미지 + 정보(온도/풍속) 섹션 */
+.weather-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-bottom: 3px dashed var(--line);
+}
+
+/* 왼쪽: 날씨 이미지/텍스트 */
+.img-section {
+  width: 500px; /* 추후 반응형 고려해서 min()/비율로 바꿔도 좋음 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  border-right: 3px dashed var(--line);
+  padding: 3rem 0;
+}
+
+.img-section img {
+  width: 250px;
+  height: 200px;
+
+  /* 아이콘이면 contain 추천(잘리지 않게)
+     cover는 꽉 채우지만 잘릴 수 있음 */
+  object-fit: cover;
+}
+
+.img-section span {
+  font-size: 30px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* 오른쪽: 온도/풍속 정보 */
+.info-section {
+  flex: 1;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 2.5rem;
+
+  color: var(--text);
+  font-size: 40px;
+  padding: 2rem;
+}
+
+/* 온도/풍속 한 줄 */
+.temperature,
+.wind {
+  font-weight: bolder;
+  margin-left: 2.5rem;
+}
+
+.temperature i,
+.wind i {
+  margin-right: 2.5rem;
+  font-size: 65px;
+}
+
+/* =========================
+   7) 시간대별(hourly) 카드 리스트
+   ========================= */
+.hourly-section {
+  width: 100%;
+
+  flex: 1; /* screen 안에서 남는 높이를 확보(스크롤 영역으로 쓰기 좋음) */
+
+  display: flex;
+  gap: 0.5rem;
+
+  overflow-x: auto; /* 가로 스크롤 */
+
+  align-items: center;
+  padding: 1rem;
+
+  /* Firefox 스크롤바 */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.35) rgba(255, 255, 255, 0.1);
+}
+
+/* Chrome / Edge / Safari 스크롤바 커스텀 */
+.hourly-section::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+.hourly-section::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+}
+.hourly-section::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
+}
+.hourly-section::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.55);
+}
+
+/* 시간 카드 */
+.hourly-section .card {
+  display: flex;
+  flex-direction: column;
+
+  border: 1px solid var(--line);
+  padding: 1rem;
+  border-radius: 12px;
+
+  align-items: center;
+  justify-content: center;
+
+  color: var(--text);
+  font-weight: 600;
+}
+
+.card img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover; /* 아이콘이면 contain 추천 */
+}
+
+.dots::after {
+  content: "";
+  display: inline-block;
+  width: 1.2em;
+  text-align: left;
+  animation: dots 1.2s steps(4, end) infinite;
+}
+
+@keyframes dots {
+  0% {
+    content: "";
+  }
+  25% {
+    content: ".";
+  }
+  50% {
+    content: "...";
+  }
+  75% {
+    content: ".....";
+  }
+  100% {
+    content: "";
+  }
+}
+
+/* =========================
+   8) 반응형(태블릿/모바일)
+   ========================= */
+@media screen and (max-width: 880px) {
+  /* 입력창을 더 넓게 */
+  .input-section {
+    width: 70%;
+  }
+
+  /* 상단 위치/날짜 영역: 글씨 작게 */
+  .location-date-section .location,
+  .location-date-section .date,
+  .location-date-section .location i,
+  .location-date-section .date i {
+    font-size: 15px;
+  }
+
+  /* 날씨 섹션: 세로로 쌓기 */
+  .weather-section {
+    flex-direction: column;
+  }
+
+  /* 세로로 쌓이면 오른쪽 점선 제거 */
+  .img-section {
+    border: none;
+  }
+}

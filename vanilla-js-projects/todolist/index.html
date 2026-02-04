@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      integrity="sha512-8x2n8rYh2n7J2Pq4jQmJ5u1nA9Pp5J9p7j0p8Hk1z/...."
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script type="module" src="script.js"></script>
+    <title>할 일 앱📝 완료</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="left-section">
+        <h1>할 일 앱📝</h1>
+        <form id="form">
+          <div class="input-section">
+            <input
+              id="input"
+              type="text"
+              required
+              placeholder="할 일을 입력해주세요..."
+            />
+            <button>추가</button>
+          </div>
+        </form>
+        <p class="msg" id="msg">아직 아무 일도 없습니다...</p>
+      </div>
+      <div class="right-section">
+        <!-- 탭 영역
+        전체/ 완료/ 미완료  -->
+
+        <div id="tabs-section">
+          <button class="tab-btn current" data-filter="all">전체</button>
+          <button class="tab-btn" data-filter="done">완료</button>
+          <button class="tab-btn" data-filter="undone">미완료</button>
+        </div>
+
+        <!-- <i class="fa-regular fa-square"></i> -->
+        <ul id="todolist"></ul>
+      </div>
+    </div>
+  </body>
+</html>

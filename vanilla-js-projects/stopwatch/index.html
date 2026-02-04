@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      integrity="sha512-8x2n8rYh2n7J2Pq4jQmJ5u1nA9Pp5J9p7j0p8Hk1z/...."
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script type="module" src="script.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>스탑 와치⏱️</h1>
+
+      <!-- 00:00:00 형식-->
+      <div id="time-section">
+        <span id="minutes">00</span> : <span id="seconds">00</span> :
+        <span id="tens">00</span>
+      </div>
+      <div id="btn-section">
+        <button id="play-btn" class="btn" data-action="play">
+          <i class="fa-solid fa-play"></i>
+        </button>
+        <button id="pause-btn" class="btn disabled" data-action="pause">
+          <i class="fa-solid fa-pause"></i>
+        </button>
+        <button id="reset-btn" class="btn disabled" data-action="reset">
+          <i class="fa-solid fa-rotate-right"></i>
+        </button>
+      </div>
+
+      <p id="status-label">쉬는 중...😴</p>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      integrity="sha512-8x2n8rYh2n7J2Pq4jQmJ5u1nA9Pp5J9p7j0p8Hk1z/...."
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script type="module" src="script.js"></script>
+    <title>회원가입 폼</title>
+  </head>
+  <body>
+    <div class="container">
+      <header><h1>회원가입</h1></header>
+
+      <form id="form">
+        <div class="input-control">
+          <label for="username">👤이름</label>
+          <input type="text" placeholder="이름" id="username" />
+          <i class="fa-solid fa-circle-check"></i>
+          <i class="fa-solid fa-circle-exclamation"></i>
+          <small>에러 메세지</small>
+        </div>
+
+        <div class="input-control">
+          <label for="email">📧이메일</label>
+          <input type="text" placeholder="이메일" id="email" />
+          <i class="fa-solid fa-circle-check"></i>
+          <i class="fa-solid fa-circle-exclamation"></i>
+          <small>에러 메세지</small>
+        </div>
+
+        <div class="input-control">
+          <label for="password">🔒비밀번호</label>
+          <input type="text" placeholder="비밀번호" id="password" />
+          <i class="fa-solid fa-circle-check"></i>
+          <i class="fa-solid fa-circle-exclamation"></i>
+          <small>에러 메세지</small>
+        </div>
+
+        <div class="input-control">
+          <label for="password2">🔐비밀번호 확인</label>
+          <input type="text" placeholder="비밀번호 확인" id="password2" />
+          <i class="fa-solid fa-circle-check"></i>
+          <i class="fa-solid fa-circle-exclamation"></i>
+          <small>에러 메세지</small>
+        </div>
+
+        <button id="input-btn">확인</button>
+      </form>
+    </div>
+  </body>
+</html>

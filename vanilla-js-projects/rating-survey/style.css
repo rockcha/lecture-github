@@ -1,0 +1,177 @@
+:root {
+  --font-kr:
+    "Gowun Dodum", "Noto Sans KR", "Apple SD Gothic Neo", "Segoe UI", Arial,
+    sans-serif;
+
+  --shadow:
+    rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+
+  --border: 1px solid black;
+
+  --app-background:
+    radial-gradient(
+      900px 600px at 20% 20%,
+      rgba(255, 185, 175, 0.35),
+      transparent 60%
+    ),
+    radial-gradient(
+      900px 600px at 80% 20%,
+      rgba(189, 210, 255, 0.5),
+      transparent 60%
+    ),
+    linear-gradient(180deg, #f7f7fb, #eef2ff);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-kr);
+}
+
+body {
+  height: 100vh;
+  background: var(--app-background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.survey {
+  position: relative;
+  width: clamp(320px, 30vw, 700px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+/* 단계들 */
+
+.steps {
+  max-width: 400px;
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  /* progress-bar 기준 */
+
+  position: relative;
+}
+
+.steps .circle {
+  height: 70px;
+  width: 70px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: 6px solid lightgray;
+  font-size: 28px;
+  color: gray;
+  font-weight: 600;
+
+  transition: all 0.3s ease;
+}
+
+.steps .circle.active {
+  border-color: coral;
+  color: coral;
+}
+
+.steps .progress-bar {
+  position: absolute;
+  height: 6px;
+  width: 100%;
+  background-color: lightgray;
+  z-index: -1;
+}
+
+/* progress-bar  와 동일한 위치 , 채우기  */
+.steps .progress-bar .indicator {
+  position: absolute;
+  height: 100%;
+
+  /* 나중에 변할 값 width */
+  width: 30%;
+  background-color: coral;
+  transition: width 0.5s ease;
+}
+
+/* 설문 content */
+
+.survey-content {
+  width: 100%;
+  border-radius: 12px;
+  background-color: whitesmoke;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  min-height: 400px;
+  padding: 0 1rem;
+}
+
+.question {
+  font-size: 32px;
+  color: gray;
+}
+
+.stars {
+  display: flex;
+  gap: 1rem;
+  font-size: 40px;
+  color: lightgray;
+}
+
+.stars i {
+  cursor: pointer;
+  transition: color 0.5s ease;
+}
+
+.stars i.active {
+  color: coral;
+}
+
+.survey-actions {
+  position: absolute;
+  bottom: 20px;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.survey-actions button {
+  background-color: gray;
+  border: none;
+  outline: none;
+  padding: 0.8rem 1.8rem;
+  font-size: 18px;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.survey-actions button:disabled {
+  background-color: lightgray;
+  cursor: not-allowed;
+}
+
+.survey-actions button:not(:disabled):hover {
+  background-color: coral;
+}
+
+.survey-actions button:not(:disabled):active {
+  transform: scale(0.95);
+}

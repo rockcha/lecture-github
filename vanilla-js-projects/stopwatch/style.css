@@ -1,0 +1,79 @@
+:root {
+  --font-kr:
+    "Gowun Dodum", "Noto Sans KR", "Apple SD Gothic Neo", "Segoe UI", Arial,
+    sans-serif;
+
+  --shadow:
+    rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+
+  --border: 1px solid black;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-kr);
+}
+
+body {
+  height: 100vh;
+  background-color: lightblue;
+
+  /* background-image: url("./bg.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat; */
+
+  background: url("./bg.png") center / cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  width: clamp(400px, 40%, 800px);
+  border-radius: 12px;
+  padding: 4rem 1rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 2rem;
+  backdrop-filter: blur(3px);
+}
+
+#time-section {
+  font-size: 40px;
+}
+
+#btn-section {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn {
+  cursor: pointer;
+  padding: 0.8rem 1.5rem;
+  font-size: 32px;
+  outline: none;
+  border: 1px solid gray;
+  background: transparent;
+
+  color: white;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.btn:not(.disabled):hover {
+  transform: translateY(-3px);
+}
+
+.btn.disabled {
+  opacity: 30%;
+}

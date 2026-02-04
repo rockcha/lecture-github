@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      integrity="sha512-8x2n8rYh2n7J2Pq4jQmJ5u1nA9Pp5J9p7j0p8Hk1z/...."
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script type="module" src="index.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="input-section">
+        <input id="input" type="text" placeholder="도시를 입력하세요.." />
+        <button id="input-btn">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </div>
+      <div class="screen" id="main-screen">
+        <div class="current-weather-section">
+          <div class="location-date-section">
+            <div class="location">
+              <i class="fa-solid fa-location-dot"></i>
+              <span id="current-location">서울 특별시</span>
+            </div>
+            <div class="date">
+              <i class="fa-regular fa-calendar"></i>
+              <span id="current-date">2026-01-27</span>
+            </div>
+          </div>
+          <div class="weather-section">
+            <div class="img-section">
+              <img src="/imgs/cloudy.png" />
+              <span id="current-weather">맑음</span>
+            </div>
+
+            <div class="info-section">
+              <div class="temperature">
+                <i class="fa-solid fa-temperature-high"></i>
+                <span id="current-temperature"> 23°C</span>
+              </div>
+              <div class="wind">
+                <i class="fa-solid fa-wind"></i>
+                <span id="current-wind">5m/s</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hourly-section">
+          <div class="card">
+            <span>00:00</span>
+            <img src="./imgs/cloudy.png" />
+            <span>23°C</span>
+          </div>
+          <div class="card">
+            <span>01:00</span>
+            <img src="./imgs/cloudy.png" />
+            <span>23°C</span>
+          </div>
+          <div class="card">
+            <span>02:00</span>
+            <img src="./imgs/cloudy.png" />
+            <span>23°C</span>
+          </div>
+          <div class="card">
+            <span>03:00</span>
+            <img src="./imgs/cloudy.png" />
+            <span>23°C</span>
+          </div>
+          <div class="card">
+            <span>04:00</span>
+            <img src="./imgs/cloudy.png" />
+            <span>23°C</span>
+          </div>
+          <div class="card">
+            <span>05:00</span>
+            <img src="./imgs/cloudy.png" />
+            <span>23°C</span>
+          </div>
+          <div class="card">
+            <span>06:00</span>
+            <img src="./imgs/cloudy.png" />
+            <span>23°C</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="screen" id="loading-screen">
+        <div class="msg-container">
+          <img src="./imgs/loading.png" />
+          <p class="dots">날씨 데이터 가져오는 중</p>
+        </div>
+      </div>
+
+      <div class="screen" id="not-found-screen">
+        <div class="msg-container">
+          <img src="./imgs/not_found.png" />
+          <p>결과가 없습니다</p>
+        </div>
+      </div>
+
+      <div class="screen current" id="idle-screen">
+        <div class="msg-container">
+          <img src="./imgs/idle.png" />
+          <p>🌈오늘의 날씨를 확인해보세요</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

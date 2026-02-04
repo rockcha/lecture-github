@@ -1,0 +1,170 @@
+:root {
+  --font-kr:
+    "Gowun Dodum", "Noto Sans KR", "Apple SD Gothic Neo", "Segoe UI", Arial,
+    sans-serif;
+
+  --shadow:
+    rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+
+  --border: 6px solid var(--brown-500);
+
+  --app-background:
+    radial-gradient(
+      900px 600px at 20% 20%,
+      rgba(255, 185, 175, 0.35),
+      transparent 60%
+    ),
+    radial-gradient(
+      900px 600px at 80% 20%,
+      rgba(189, 210, 255, 0.5),
+      transparent 60%
+    ),
+    linear-gradient(180deg, #f7f7fb, #eef2ff);
+
+  --base: #efe3d3;
+
+  /* browns */
+  --brown-900: #5b4334; /* 메인 텍스트/아이콘 */
+  --brown-700: #7a5a46; /* 서브 텍스트 */
+  --brown-300: #c9b79f; /* border/line */
+  --brown-500: #a47c5b; /* hover/accent */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-kr);
+}
+
+body {
+  min-height: 100dvh;
+  background: var(--app-background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: min(600px, 92vw);
+  display: flex;
+  flex-direction: column;
+}
+
+.dcc {
+  width: 100%;
+  height: min(600px, 70vh);
+  border: var(--border);
+  border-radius: 12px;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-color: var(--base);
+  position: relative;
+  overflow: auto;
+}
+
+.dcc[data-state="gloomy"] {
+  background-image: url("./imgs/gloomy.png");
+}
+.dcc[data-state="pet"] {
+  background-image: url("./imgs/pet.png");
+}
+.dcc[data-state="sleep"] {
+  background-image: url("./imgs/sleep.png");
+}
+.dcc[data-state="wrap"] {
+  background-image: url("./imgs/wrap.png");
+}
+.dcc[data-state="bake"] {
+  background-image: url("./imgs/bake.png");
+}
+
+/* 고정시킬 타이머와 메세지   */
+
+.status-bar {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background-color: var(--base);
+  display: flex;
+  border-bottom: var(--border);
+}
+
+.timer {
+  border-right: var(--border);
+  width: 92px;
+  height: 92px;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--brown-900);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+#time {
+  font-size: 24px;
+}
+.timer.active {
+  background-color: yellowgreen;
+  color: white;
+}
+
+.status-bar .msg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--brown-900);
+}
+
+.action-bar {
+  width: 100%;
+  display: flex;
+  gap: 0.2rem;
+  margin-top: 0.2rem;
+}
+
+.action-bar .action {
+  border: none;
+  flex: 1;
+  padding: 1.5rem 0;
+  background-color: var(--base);
+  color: var(--brown-900);
+  font-size: 40px;
+  font-weight: 700;
+  border-radius: 8px;
+  border: var(--border);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.action-bar.disabled .action {
+  opacity: 0.55;
+
+  pointer-events: none; /* 클릭/호버 완전 차단 */
+  filter: grayscale(0.3) brightness(0.95);
+}
+
+.action-emoji {
+  transition: all 0.3s ease;
+}
+
+.action-bar .action:hover .action-emoji {
+  transform: translateY(-5px) scale(1.6);
+}
+
+.action-bar .action:active .action-emoji {
+  transform: scale(1.4);
+}

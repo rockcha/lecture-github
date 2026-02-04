@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      integrity="sha512-8x2n8rYh2n7J2Pq4jQmJ5u1nA9Pp5J9p7j0p8Hk1z/...."
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script type="module" src="index.js"></script>
+    <title>우울 두쫀쿠 키우기</title>
+  </head>
+  <body>
+    <div class="container">
+      <div data-state="gloomy" class="dcc">
+        <div class="status-bar">
+          <div id="timer" class="timer">
+            <i class="fa-solid fa-clock"></i><span id="time">5</span>
+          </div>
+          <div id="msg" class="msg">우울한 상태입니다 😭</div>
+        </div>
+      </div>
+      <div class="action-bar">
+        <button class="action" data-action="pet">
+          <span class="action-emoji">✋</span>
+        </button>
+        <button class="action" data-action="sleep">
+          <span class="action-emoji">🛌</span>
+        </button>
+        <button class="action" data-action="bake">
+          <span class="action-emoji">🔥</span>
+        </button>
+        <button class="action" data-action="wrap">
+          <span class="action-emoji">🎁</span>
+        </button>
+      </div>
+    </div>
+  </body>
+</html>

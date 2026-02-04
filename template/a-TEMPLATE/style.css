@@ -1,0 +1,36 @@
+:root {
+  --font-kr:
+    "Gowun Dodum", "Noto Sans KR", "Apple SD Gothic Neo", "Segoe UI", Arial,
+    sans-serif;
+
+  --shadow:
+    rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+
+  --border: 1px solid black;
+
+  --app-background:
+    radial-gradient(
+      900px 600px at 20% 20%,
+      rgba(255, 185, 175, 0.35),
+      transparent 60%
+    ),
+    radial-gradient(
+      900px 600px at 80% 20%,
+      rgba(189, 210, 255, 0.5),
+      transparent 60%
+    ),
+    linear-gradient(180deg, #f7f7fb, #eef2ff);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-kr);
+}
+
+body {
+  height: 100vh;
+  background: var(--app-background);
+}

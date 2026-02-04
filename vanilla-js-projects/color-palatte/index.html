@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      integrity="sha512-8x2n8rYh2n7J2Pq4jQmJ5u1nA9Pp5J9p7j0p8Hk1z/...."
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script type="module" src="index.js"></script>
+    <title>색상 팔레트</title>
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>원하는 색상을 만들고, <br />선택해서 복사하세요</h1>
+
+      <div class="box-container">
+        <!-- 색상 박스 4개 -->
+        <button class="box copied">
+          <div class="color"></div>
+          <span class="hex">#A1B2C3</span>
+          <span class="msg">
+            <i class="fa-regular fa-circle-check"></i>복사 됨
+          </span>
+        </button>
+        <button class="box copied">
+          <div class="color"></div>
+          <span class="hex">#A1B2C3</span>
+          <span class="msg">
+            <i class="fa-regular fa-circle-check"></i>복사 됨
+          </span>
+        </button>
+        <button class="box">
+          <div class="color"></div>
+          <span class="hex">#A1B2C3</span>
+          <span class="msg">
+            <i class="fa-regular fa-circle-check"></i>복사 됨
+          </span>
+        </button>
+        <button class="box">
+          <div class="color"></div>
+          <span class="hex">#A1B2C3</span>
+          <span class="msg">
+            <i class="fa-regular fa-circle-check"></i>복사 됨
+          </span>
+        </button>
+      </div>
+
+      <button id="gen-btn">
+        <i class="fa-solid fa-arrows-rotate"></i>
+      </button>
+    </div>
+  </body>
+</html>
