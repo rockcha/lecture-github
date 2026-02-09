@@ -9,18 +9,31 @@
 
   --border: 1px solid black;
 
-  --app-background:
+  /* background - 밝은 버전 */
+  --bg-light: linear-gradient(180deg, #fbfcff 0%, #f1f6ff 45%, #eef9f4 100%);
+  --bg-softgreen:
     radial-gradient(
-      900px 600px at 20% 20%,
-      rgba(255, 185, 175, 0.35),
+      900px 600px at 30% 15%,
+      rgba(255, 255, 255, 0.28),
       transparent 60%
     ),
+    linear-gradient(165deg, #f3f7f1 0%, #dcead6 45%, #b7d6a8 100%); /* background - 다크 그린 */
+  --bg-dark:
     radial-gradient(
-      900px 600px at 80% 20%,
-      rgba(189, 210, 255, 0.5),
+      900px 600px at 25% 15%,
+      rgba(149, 213, 178, 0.22),
       transparent 60%
     ),
-    linear-gradient(180deg, #f7f7fb, #eef2ff);
+    linear-gradient(165deg, #062d23 0%, #0b3d2f 45%, #1b5e46 100%);
+  --green-50: #f2fbf6;
+  --green-100: #dff3e8;
+  --green-200: #bfe7d1;
+  --green-300: #95d5b2;
+  --green-400: #52b788;
+  --green-500: #2d6a4f;
+  --green-600: #1b5e46;
+  --green-700: #0f4d3a;
+  --green-800: #0b3d2f;
 }
 
 * {
@@ -32,5 +45,5 @@
 
 body {
   height: 100vh;
-  background: var(--app-background);
+  background: var(--bg-light);
 }
